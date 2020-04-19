@@ -50,5 +50,32 @@
 
 ---
 
-##
+## Organizando a Solução
 
+- Criando a pasta **PaymentContext** na mão
+- Detro dessa pasta iremos criar mais 3 pastas: **PaymentContext.Domain**, **PaymentContext.Shared** e **PaymentContext.Tests**
+
+- Dentro da pasta principal (PaymentContext), vamos usar um comando para criar uma solution: **dotnet new sln**
+
+- Dentro da pasta **PaymentContext.Domain**, vamos criar os projetos usando o comando: **dotnet new classlib** (no final vira uma dll)
+
+- Dentro da pasta **PaymentContext.Shared**, vamos criar os projetos usando o comando: **dotnet new classlib** (no final vira uma dll)
+
+- Dentro da pasta **PaymentContext.Tests**, vamos criar os projetos usando o comando: **dotnet new mstest**
+
+- Agora precisamos add os projetos à solução. Para isso usamos o comando: **dotnet sln add pasta/projeto.csproj** (realizar isso para cada projeto - domain/shared/test)
+
+- Com os projetos referenciados em nossa solution, vamos fazer o restore e build da solução usando os comandos: **dotnet restore** e **dotnet build**
+
+- Cada projeto criado terá uma responsabilidade: Domain - é o dominio rico. Shared - itens que possam ser compartilhados entre os domínios. Test - onde realizamos os testes
+
+- Precisamos add as referencias entre eles.
+- Domain vai precisar da referencia do Shared
+- Test vai precisar da referencia de Domain e Shared
+- Shared não depende de ninguem
+- Para criar uma referencia: dentro do pasta de Domain vamos executar o seguinte comando **dotnet add reference ../PaymentContext.Shared/PaymentContext.Shared.csproj**
+- Devemos fazer isso para todos os outros projetos que dependem de referencia
+
+---
+
+## Definindo Entidades
