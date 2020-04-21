@@ -1,0 +1,19 @@
+using System.Collections.Generic;
+
+namespace PaymentContext.Domain.Entities
+{
+    public class Student
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Document { get; set; }
+        public string Email { get; set; }
+
+        //Enedreço de entrega
+        public string Address { get; set; }
+
+        // um aluno pode ter mais de uma assinatura - só uma ativa
+        public List<Subscription> Subscriptions { get; set; }
+
+    }
+}

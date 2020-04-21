@@ -79,3 +79,10 @@
 ---
 
 ## Definindo Entidades
+
+- Vamos criar dentro do projeto de Domain
+- Temos que criar uma nova pasta - **Entities**
+- Criaremos dentro dessa pasta as nossas entidades - **Student.cs**, **Subscription.cs**, **Payment.cs**
+
+- Classe student criamos 4 props. do tipo string - FirstName, LastName, Document e Email
+- Classe Subscription criamos 
