@@ -86,3 +86,22 @@
 
 - Classe student criamos 4 props. do tipo string - FirstName, LastName, Document e Email
 - Classe Subscription criamos 
+- continua...
+
+---
+
+## Corrupção no Código
+
+- Após criarmos nossas entidades vamos notar que nosso código não está "bom" (pouco expressivo).
+- Se formos criar uma instancia de aluno, não sabemos quais são as informações necessárias
+- Vamos ter que definir nos construtores o que for necessário
+- Solid - S -> Cada item com responsabilidade unica
+- Outro ponto para melhorar - não podemo deixar nossas propriedades acessiveis fora da classe (escrita)
+- Podemos deixar o set private - único ponto de entrada é no construtor (open/close principle)
+- Se quisermos alterar alguma propriedade, devemos criar algum método
+
+- Resolvendo problemas de acesso à metodos das listas:
+- Para resolver o problema das nossas listas, criar uma IReadOnlyCollection.
+- Criar um atributo privdo de lista para adicionarmos nossos itens nessa lista
+- E o IReadOnlyCollection retorna o atributo de lista em forma de array
+- Não esquecer de instanciar a lista no construtor
