@@ -105,3 +105,29 @@
 - Criar um atributo privdo de lista para adicionarmos nossos itens nessa lista
 - E o IReadOnlyCollection retorna o atributo de lista em forma de array
 - Não esquecer de instanciar a lista no construtor
+
+---
+
+## SOLID e Clean Code
+
+- ler o livro - Clean Code (Robert C. Martin)
+
+---
+
+## Primitive Obssession
+
+- Em nossas propriedades, seus tipos são primitivos
+- Em muitas classes repetem a mesma prop.
+- Se quisermos validar essas propriedades, vamos ter que repetir o código
+
+- Vamos criar os tipos para representar essas props.
+- A Validação fica nesse tipo (Value Object)
+- Com isso temos um reuso de código e menos testes
+
+---
+
+## Value Objects
+
+- 
+
+---
