@@ -128,6 +128,46 @@
 
 ## Value Objects
 
-- 
+- criamos nossos tipos complexos
 
 ---
+
+## Implementando Validações
+
+- criamos o VO para implementarmos validações
+- exceção - usamos para algo que não era para acontecer - ex. banco de dados fora
+- validação nos esperamos que aconteça
+- poderiamos resolver "na mão" - criando uma lista de erros (atributo)
+- se tiver erro, add erro na lista
+- Mas ja existem algumas libs prontas -> Ex. **Flunt**
+- Já possui as notificações preparadas
+
+- instalando o pacote do Flunt dentro de shared e domain - dotnet add package flunt
+
+- As entidades/ValueObjects devem herdar de Notiable 
+
+---
+
+## Design By Contracts
+
+- Reuso de código = menos testes
+- SPOF - Single point of failure
+- muitos if - devemos evitar - complexidade ciclomática (if = 2 testes (exemplo))
+- microsoft havia lançado o code contract - abandonado
+- Design By Contract - foi utilizado no flunt - validações comuns já possuem métodos testados
+- não iremos precisar testar em nosso código
+- Criamos contratos no nosso código
+
+  AddNotifications(new Contract()
+    .Requires()
+    .IsEmail(Address, "Email.Address", "E-mail inválido")
+  );
+
+- criamos esse contrato no VO
+- Se for invalido, será add uma notificação em nossa VO
+- E na entidade estamos pegando todas essas notificações (de Todo os VOs)
+
+- Temos duas propriedades que verificam se estão validos ou não (valid e invalid)
+
+- Nos VOs temos validações de campo
+- não teremos validação de regra de negócio
