@@ -215,3 +215,31 @@
 - É um objeto de trasporte - entre camadas - o que vem da api, por exemplo, via json
 - o Newtonsoft converte para gente
 
+---
+
+## Fail Fast Validations
+
+- Criamos as validações direto no Command
+- Criamos uma assinatura de um método na interface
+- Nossos comandos herdam de Notifiable (Flunt)
+
+- Dentro da implementação do método, criamos nosso contrato de validação
+
+        public void Validate()
+        {
+            AddNotifications(new Contract()
+                .Requires()
+                .HasMinLen(FirstName, 3, "Name.FirstName", "Nome deve conter pelo menos 3 caracteres")
+                .HasMinLen(LastName, 3, "Name.LastName", "Nome deve conter pelo menos 3 caracteres")
+                .HasMaxLen(FirstName, 40, "Name.FirstName", "O nome deve ter até 40 caracteres")
+                .HasMaxLen(LastName, 40, "Name.LastName", "O sobrenome deve ter até 40 caracteres")
+            );
+        }
+
+- Pegamos a mesma validação que tinhamos no VO Name. Com isso, não precisamos mais ter no VO, essa validação
+
+- Ou e as props do command forem os "vos", chammos a validação desses "vos".
+
+---
+
+## Testando os Commands
