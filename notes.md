@@ -244,4 +244,16 @@
 
 ## Testando os Commands
 
-- 
+---
+
+## Repository Pattern
+
+- Abstrai o acesso a dados
+- Não podemos depender de banco
+- Ex. Ao criar um usuario, precisa de documento, e esse documento não pode ser repetido
+- Não importa o banco, orm, etc...
+
+- No Domain, vamos criar uma pasta chamada repositories
+- Temos que depender da abstração, e não da implementação
+- Vai ter um arquivo - IStudentRepository.cs (interface)
+- Só criamos as assinaturas dos métodos na interface
