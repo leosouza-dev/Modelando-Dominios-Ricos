@@ -41,21 +41,26 @@ namespace PaymentContext.Domain.Entities
           if(sub.Active)
           {
             hasSubscriptionActive=true;
-            break;
+            //break;
           }
       }
 
-      // validação por contrato
-      // AddNotifications(new Contract()
-      //   .Requires()
-      //   .IsFalse(hasSubscriptionActive, "Student.Subscription", "Você já tem uma assinatura ativa")
-      // );
+      //validação por contrato
+      AddNotifications(new Contract()
+        .Requires()
+        // não pode add assinatura com outras ativas
+        .IsFalse(hasSubscriptionActive, "Student.Subscription", "Você já tem uma assinatura ativa")
+        // não pode add assinatura sem pagamento
+        .IsLowerThan(0, subscription.Payments.Count, "Student.Subscription.Payments", "Esta assinatura não possui pagamentos")
+      );
 
       // alternativa sem contrato - dessa forma teremos que ter um teste
-      if(hasSubscriptionActive)
-      {
-        AddNotification("Student.Subscription", "Você já tem uma assinatura ativa");
-      }
+      // if(hasSubscriptionActive)
+      // {
+      //   AddNotification("Student.Subscription", "Você já tem uma assinatura ativa");
+      // }
+
+      _subscriptions.Add(subscription);
     }
 
   }

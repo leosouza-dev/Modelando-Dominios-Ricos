@@ -171,3 +171,38 @@
 
 - Nos VOs temos validações de campo
 - não teremos validação de regra de negócio
+
+---
+
+## Testando as Entidades e VOs
+
+- Poderiamos começar com o VO Name, mas ele só tem validação usando o FLUNT
+- Com isso não precisamos criar testes para ele
+- Email, a mesma coisa
+- Document podemos testar - cpf valido e invalido
+
+- Metodologia de teste - RED, GREEN, REFACTOR
+- Criamos os testes para falharem (assert.fail())
+- Depois fazemos passarem
+- e por fim refatoramos
+
+- Em entidade, vamos começar testando o Student.cs
+- Valores de VO's que recebemos no construtor não precisa testar
+- Vamos testar somente a assinatura do student
+
+- todo
+- Perguntar para o balta:
+        .IsLowerThan(0, subscription.Payments.Count, "Student.Subscription.Payments", "Esta assinatura não possui pagamentos")
+- pq não pode serequals??não entendi essa bagaça
+- meu count é 0, não é menor que 0
+
+---
+
+## Commands
+
+- comandos/inputs/entradas de dados
+- CQRS 
+- Dividir escrita de leitura
+- Pode ocorrer bancos de dados distintos - banco para escrita e banco para leitura
+
+- Vamos criar os commands no domínio
