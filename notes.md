@@ -205,4 +205,13 @@
 - Dividir escrita de leitura
 - Pode ocorrer bancos de dados distintos - banco para escrita e banco para leitura
 
-- Vamos criar os commands no domínio
+- Vamos criar os commands no domínio (nova pasta Commands)
+- ex.: CreatePayPalSubscriptionCommand.cs
+
+- Em shared criamos uma interface ICommand.cs dentro de uma nova pasta chamada de Commands
+
+- COmands - junção de todas informações para criar uma classe - ex. subscription (student -> nomes, documento, email; paypalpayment -> etc...)
+
+- É um objeto de trasporte - entre camadas - o que vem da api, por exemplo, via json
+- o Newtonsoft converte para gente
+
